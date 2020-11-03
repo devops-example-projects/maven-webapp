@@ -5,25 +5,25 @@ pipeline {
     stage('Clean')
     {
       steps {
-       sh "sudo mvn clean"
+       sh "/opt/apache-maven-3.6.3/bin/mvn clean"
        }
     }
     stage('Compile')
     {
       steps {
-        sh "sudo mvn compile"
+        sh "/opt/apache-maven-3.6.3/bin/mvn compile"
         }
      }
      stage('Test')
      {
        steps {
-        sh "sudo mvn test"
+        sh "/opt/apache-maven-3.6.3/bin/mvn test"
         }
      }
      stage('Package')
      {
       steps {
-       sh "sudo mvn package"
+       sh "/opt/apache-maven-3.6.3/bin/mvn package"
        }
      }
      stage("Archiving")
