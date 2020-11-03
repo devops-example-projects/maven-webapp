@@ -5,25 +5,25 @@ pipeline {
     stage('Clean')
     {
       steps {
-       sh "mvn clean"
+       sh "sudo mvn clean"
        }
     }
     stage('Compile')
     {
       steps {
-        sh "mvn compile"
+        sh "sudo mvn compile"
         }
      }
      stage('Test')
      {
        steps {
-        sh "mvn test"
+        sh "sudo mvn test"
         }
      }
      stage('Package')
      {
       steps {
-       sh "mvn package"
+       sh "sudo mvn package"
        }
      }
      stage("Archiving")
