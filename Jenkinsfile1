@@ -1,0 +1,36 @@
+pipeline{
+    agent{
+        label 'Windows'
+    }
+    environment{
+        maven = Maven
+    }
+    stages{
+        stage("Clean")
+        {
+            steps{
+                bat "${maven} clean"
+            }
+        }
+        stage("Build")
+        {
+            steps{
+                bat "${maven} compile"
+            }
+        }
+        stage("Test")
+        {
+            steps{
+                bat "${maven} test"
+            }
+        }
+        stage("Package")
+        {
+            steps{
+                bat "${maven} package"
+            }
+        }
+    }
+
+
+}
