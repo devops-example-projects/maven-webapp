@@ -1,6 +1,8 @@
 pipeline{
     agent{
+        node{
         label 'Windows'
+    }
     }
     environment{
         maven = Maven
