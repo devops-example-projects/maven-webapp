@@ -1,32 +1,32 @@
-pipeline{
-    agent{
-        label 'Win'
+pipeline {
+    agent {
+        label 'Slave'
     }
-    environment{
+    environment {
         maven = Maven
     }
-    stages{
+    stages {
         stage("Clean")
         {
-            steps{
+            steps {
                 bat "${maven} clean"
             }
         }
         stage("Build")
         {
-            steps{
+            steps {
                 bat "${maven} compile"
             }
         }
         stage("Test")
         {
-            steps{
+            steps {
                 bat "${maven} test"
             }
         }
         stage("Package")
         {
-            steps{
+            steps {
                 bat "${maven} package"
             }
         }
