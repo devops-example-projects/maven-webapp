@@ -1,5 +1,7 @@
 pipeline{
-    agent any
+    agent{
+    label 'Win'
+    }
     environment{
         maven = Maven
     }
