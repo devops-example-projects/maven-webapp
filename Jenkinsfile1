@@ -1,33 +1,41 @@
 pipeline {
-    agent {
-        label 'Slave'
+   agent {
+    label 'Slave'
     }
-    environment {
-        maven = Maven
+
+    tools {
+        maven 'Maven'
     }
+    
     stages {
+        stage("Checkout")
+        {
+            steps {
+                git branch: 'main', url: 'https://github.com/devops-example-projects/maven-webapp.git'
+            }
+        }
         stage("Clean")
         {
             steps {
-                bat "${maven} clean"
+                bat 'mvn clean'
             }
         }
         stage("Build")
         {
             steps {
-                bat "${maven} compile"
+                bat 'mvn compile'
             }
         }
         stage("Test")
         {
             steps {
-                bat "${maven} test"
+                bat 'mvn test'
             }
         }
         stage("Package")
         {
             steps {
-                bat "${maven} package"
+                bat 'mvn package'
             }
         }
     }
